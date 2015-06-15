@@ -4,9 +4,9 @@
         .module('myApp')
         .controller('ReviewModalController', ReviewModalController);
 
-        ReviewModalController.$inject = ['$scope','$modal', '$log' ];
+        ReviewModalController.$inject = ['$scope','$modal', '$log' , '$rootScope' ];
 
-        function ReviewModalController($scope, $modal, $log) {
+        function ReviewModalController($scope, $modal, $log, $rootScope) {
 
             $scope.imgUrl;
             $scope.animationsEnabled = true;

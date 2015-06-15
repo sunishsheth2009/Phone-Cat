@@ -43,11 +43,10 @@
                                         alt="review-icon"
                                         style="width:20px; height:20px; float:left"> Buy
                                 </button>
-                                <span ng-controller="ReviewModalController">
+                                <span ng-controller="ReviewModalController as reviewModal">
                                     <script type="text/ng-template" id="ReviewDisplay.html">
                                         <div class="modal-header">
-                                            <h4 class="modal-title col-xs-11">User
-                                                Reviews - {{productId | uppercase}}</h4>
+                                            <h3 class="modal-title col-xs-11">{{productId | uppercase}}</h3>
                                             <button class="btn btn-warning cols-xs-1"
                                                     ng-click="cancel()"
                                                     style="background-color: white; border-color: white; box-shadow: none; background-image: none;">
@@ -58,10 +57,12 @@
                                         </div>
                                         <div class="modal-body">
                                             <div>
-                                                <input class="form-control" type="text" ng-model="newUser" style="margin-bottom: 4px" placeholder="Enter your name">
-                                                <textarea class="form-control" rows="3" ng-model="newReview" style="margin-bottom: 4px" placeholder="Enter your new review..."></textarea>
-                                                <button type="button" class="btn btn-primary col-md-offset-10" style="margin-bottom: 4px; width:95px" ng-click="submit(newUser, newReview)">Submit</button>
+                                                <input class="form-control" type="text" ng-model="reviewModal.newUser" style="margin-bottom: 4px" placeholder="Enter your name">
+                                                <textarea class="form-control" rows="3" ng-model="reviewModal.newReview" style="margin-bottom: 4px" placeholder="Enter your new review..."></textarea>
+                                                <button type="button" class="btn btn-primary col-md-offset-10" style="margin-bottom: 4px; width:95px" ng-click="submit(reviewModal.newUser, reviewModal.newReview); reviewModal.newUser = '';reviewModal.newReview = '';">Submit</button>
                                             </div>
+                                            <hr>
+                                            <h3 style="text-align:center"><u>User Reviews</u></h3>
                                             <div ng-repeat="review in getReviews">
                                                     <span><strong>{{review.name}} : </strong></span>
                                                     <span>{{review.reviews}}</span>

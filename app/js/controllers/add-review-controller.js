@@ -30,7 +30,6 @@
         };
 
         $rootScope.submit = function(newUser,newReview){
-//            alert($rootScope.productId + "  " + newUser + "   "+ newReview);
             review.addReview($rootScope.productId, newUser, newReview);
         }
     }
