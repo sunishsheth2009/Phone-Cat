@@ -1,0 +1,10 @@
+.searchDiv{
+    text-align:center;
+}
+
+#searchBox{
+    background-image: url(http://www.levenmetwater.nl/static/global/images/icon-search.png);
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    text-indent: 20px;
+}

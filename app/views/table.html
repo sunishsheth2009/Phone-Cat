@@ -1,0 +1,115 @@
+<table class="table table-striped">
+    <tbody>
+    <tr>
+        <th rowspan="{{info.data.availability.length + 2}}">Availability and Networks</th>
+        <td rowspan="{{info.data.availability.length + 1}}">Availability</td>
+        <td>{{info.data.availability[0]}}</td>
+    </tr>
+    <tr ng-repeat="availability in info.data.availability">
+        <td ng-show="$index > 0">{{availability}}</td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+        <th rowspan="3">Battery</th>
+        <td>Type</td>
+        <td>{{info.data.battery.type}}</td>
+    </tr>
+    <tr>
+        <td>Talk Time</td>
+        <td>{{info.data.battery.talkTime}}</td>
+    </tr>
+    <tr>
+        <td>Standby time (max)</td>
+        <td>{{info.data.battery.standbyTime}}</td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+        <th rowspan="2">Storage and Memory</th>
+        <td>RAM</td>
+        <td>{{info.data.storage.ram}}</td>
+    </tr>
+    <tr>
+        <td>Internal Storage</td>
+        <td>{{info.data.storage.flash}}</td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+        <th rowspan="5">Connectivity</th>
+        <td>Network Support</td>
+        <td>{{info.data.connectivity.cell}}</td>
+    </tr>
+    <tr>
+        <td>WiFi</td>
+        <td>{{info.data.connectivity.wifi}}</td>
+    </tr>
+    <tr>
+        <td>Bluetooth</td>
+        <td>{{info.data.connectivity.bluetooth}}</td>
+    </tr>
+    <tr>
+        <td>Infrared</td>
+        <td>{{info.data.connectivity.infrared}}</td>
+    </tr>
+    <tr>
+        <td>GPS</td>
+        <td>{{info.data.connectivity.gps}}</td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+        <th rowspan="2">Android</th>
+        <td>OS Version</td>
+        <td>{{info.data.android.os}}</td>
+    </tr>
+    <tr>
+        <td>UI</td>
+        <td>{{info.data.android.ui}}</td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+        <th rowspan="3">Display</th>
+        <td>Screen size</td>
+        <td>{{info.data.display.screenSize}}</td>
+    </tr>
+    <tr>
+        <td>Screen resolution</td>
+        <td>{{info.data.display.screenResolution}}</td>
+    </tr>
+    <tr>
+        <td>Touch screen</td>
+        <td>{{info.data.display.touchScreen}}</td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+        <th rowspan="{{info.data.sizeAndWeight.dimensions.length + 2}}">Size and Weight</th>
+        <td rowspan="{{info.data.sizeAndWeight.dimensions.length + 1}}">Dimensions</td>
+        <td>{{info.data.sizeAndWeight.dimensions[0]}}</td>
+    </tr>
+    <tr ng-repeat="dim in info.data.sizeAndWeight.dimensions">
+        <td ng-show="$index > 0">{{dim}}</td>
+    </tr>
+    <tr>
+        <td>Weight</td>
+        <td>{{info.data.sizeAndWeight.weight}}</td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr ng-if="info.data.additionalFeatures.length > 0">
+        <th>Additional Features</th>
+        <td colspan="2">{{info.data.additionalFeatures}}</td>
+    </tr>
+    </tbody>
+
+</table>

@@ -1,0 +1,38 @@
+#slides_control > div{
+    height: 100px;
+}
+img{
+    margin:auto;
+    width: 400px;
+}
+#slides_control {
+    margin:auto 0;
+    width: 400px;
+}
+
+.header{
+    border-bottom: 2px solid gray;
+}
+
+
+ul.phone-thumbs {
+  margin: 0;
+  list-style: none;
+}
+
+ul.phone-thumbs li {
+  border: 1px solid black;
+  display: inline-block;
+  margin: 1em;
+  background-color: white;
+}
+
+ul.phone-thumbs img {
+  height: 100px;
+  width: 100px;
+  padding: 1em;
+}
+
+ul.phone-thumbs img:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,102 @@
+<div ng-controller="DescriptionController as des">
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-4 col-md-offset-0">
+                        <div ng-controller="CarouselDemoCtrl as carousel" id="slides_control">
+                            <div style="height: 400px; width: 400px;">
+                                <carousel interval="myInterval">
+                                    <slide ng-repeat="sliderid in carousel.slides.images" active="slide.active">
+                                        <img ng-src="{{sliderid}}" style="margin:auto;">
+                                    </slide>
+                                </carousel>
+                            </div>
+
+                            <div ng-controller="ModalDemoCtrl" style="height: 100%">
+                                <script type="text/ng-template" id="myModalContent.html">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title col-xs-11">{{getName | uppercase}}</h3>
+                                        <button class="btn btn-warning cols-xs-1" ng-click="cancel()"
+                                                style="background-color: white; border-color: white; box-shadow: none; background-image: none;">
+                                            <img
+                                                    src="https://cdn3.iconfinder.com/data/icons/inficons-set-2/512/648945-star-ratings-512.png"
+                                                    style="width:15px; height:15px; float:right;"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="col-xs-2"></div>
+                                        <img src="{{getImgUrl}}" alt="huge-thumbnail" width="100%">
+                                    </div>
+                                </script>
+                                <ul class="phone-thumbs" style="margin-left: -50px;">
+                                    <li ng-repeat="img in carousel.slides.images">
+                                        <img ng-src="{{img}}" ng-click="open('lg',img,des.id)">
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div ng-controller="AddReviewController as review">
+                                <button type="button" class="btn btn-success"
+                                        style="width:195px"
+                                        ng-click="carousel.add(des.id)"><img
+                                        src="https://cdn0.iconfinder.com/data/icons/seo-smart-pack/128/grey_new_seo2-35-512.png"
+                                        alt="review-icon"
+                                        style="width:20px; height:20px; float:left"> Buy
+                                </button>
+                                <span ng-controller="ReviewModalController">
+                                    <script type="text/ng-template" id="ReviewDisplay.html">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title col-xs-11">User
+                                                Reviews - {{productId | uppercase}}</h4>
+                                            <button class="btn btn-warning cols-xs-1"
+                                                    ng-click="cancel()"
+                                                    style="background-color: white; border-color: white; box-shadow: none; background-image: none;">
+                                                <img
+                                                        src="https://cdn3.iconfinder.com/data/icons/inficons-set-2/512/648945-star-ratings-512.png"
+                                                        style="width:15px; height:15px; float:right;">
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                                <input class="form-control" type="text" ng-model="newUser" style="margin-bottom: 4px" placeholder="Enter your name">
+                                                <textarea class="form-control" rows="3" ng-model="newReview" style="margin-bottom: 4px" placeholder="Enter your new review..."></textarea>
+                                                <button type="button" class="btn btn-primary col-md-offset-10" style="margin-bottom: 4px; width:95px" ng-click="submit(newUser, newReview)">Submit</button>
+                                            </div>
+                                            <div ng-repeat="review in getReviews">
+                                                    <span><strong>{{review.name}} : </strong></span>
+                                                    <span>{{review.reviews}}</span>
+                                            </div>
+
+                                        </div>
+                                    </script>
+                                    <button type="button" class="btn btn-info" style="width:195px"
+                                            ng-click="openReview('lg', review.getReviews(des.id))"><img
+                                            src="https://www.gregspry.com/images/reviews.png" alt="review-icon"
+                                            style="width:20px; height:20px; float:left"> Reviews
+                                    </button>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-8 col-md-offset-0">
+                        <div ng-controller="InformationController as info">
+                            <div class="header">
+                                <h1>{{info.data.id | uppercase}}</h1>
+
+                                <p>{{info.data.description}}</p>
+                            </div>
+                            <div description-table></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="row">-->
+                <!--<p>{{des.id}}</p>-->
+                <!--</div>-->
+
+            </div>
+        </div>
+
+    </div>
+</div>
